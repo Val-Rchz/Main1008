@@ -1,0 +1,376 @@
+{
+   "$schema": "",
+   "name": "opam",
+   "title": "Opération d'aménagement",
+   "description": "Description des opérations d'aménagement",
+   "countryCode": "FR",
+   "licenses": [
+      {
+         "title": "Etalab Licence Ouverte 2.0",
+         "name": "etalab-2.0",
+         "path": "https://spdx.org/licenses/etalab-2.0.html"
+      }
+   ],
+   "fields": [
+      {
+         "name": "opam_id",
+         "title": "Identifiant de l’opération d’aménagement",
+         "description": "Identifiant clé primaire de l’opération d’aménagement",
+         "type": "string",
+         "constraints": { "required": true, "primaryKey": true }
+      },
+      {
+         "name": "nom",
+         "title": "Nom de l’opération",
+         "description": "Nom de l’opération d’aménagement",
+         "type": "string",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "procedure",
+         "title": "Procédure",
+         "description": "Procédure de l’opération d’aménagement",
+         "type": "string",
+         "constraints": { "required": true, "enum": ["ZAC", "PA", "PCVD", "DP", "Permis groupé"] }
+      },
+      {
+         "name": "description",
+         "title": "Description",
+         "description": "Court commentaire de description de l’opération d’aménagement",
+         "type": "string",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "type_urbanisation",
+         "title": "Type d’urbanisation",
+         "description": "Type d’urbanisation",
+         "type": "string",
+         "constraints": { "required": true, "enum": ["urba1", "urba2", "urba3"] }
+      },
+      {
+         "name": "duree_previsionnelle",
+         "title": "Durée prévisionnelle",
+         "description": "Durée prévisionnelle de l’opération d’aménagement en années",
+         "type": "number",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "vocation_dominante",
+         "title": "Vocation dominante",
+         "description": "Vocation dominante de l’opération d’aménagement",
+         "type": "string",
+         "constraints": { "required": true, "enum": ["residential", "commercial", "mixed-use"] }
+      },
+      {
+         "name": "emprise_foncière",
+         "title": "Emprise foncière",
+         "description": "Emprise foncière en hectares",
+         "type": "number",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surface_cessible",
+         "title": "Surface cessible",
+         "description": "Surface commercialisable en hectares",
+         "type": "number",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "multi_site",
+         "title": "Multi-site",
+         "description": "Le site présente plusieurs opérations contiguës (oui/non)",
+         "type": "boolean",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "date_autorisation",
+         "title": "Date d’autorisation",
+         "description": "Date d’autorisation du PA, PCVD, DP ou date d’approbation du dossier",
+         "type": "date",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "etat_avancement",
+         "title": "État d’avancement",
+         "description": "État d’avancement global du projet",
+         "type": "string",
+         "constraints": { "required": true, "enum": ["en projet", "en cours", "terminé"] }
+      },
+      {
+         "name": "url_presa_projet",
+         "title": "URL présentation projet",
+         "description": "URL du site de présentation du projet",
+         "type": "string",
+         "format": "uri",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "url_medias",
+         "title": "URL médias",
+         "description": "URL des médias du projet (photo, vue d’artiste, vidéo)",
+         "type": "string",
+         "format": "uri",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "url_plan_masse",
+         "title": "URL plan masse",
+         "description": "URL du plan masse du projet",
+         "type": "string",
+         "format": "uri",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "nom_EPCI",
+         "title": "Nom EPCI",
+         "description": "Nom de la communauté de communes",
+         "type": "string",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "siren_EPCI",
+         "title": "SIREN EPCI",
+         "description": "Code SIREN de la communauté de communes",
+         "type": "string",
+         "constraints": { "required": true, "pattern": "^\\d{9}$" }
+      },
+      {
+         "name": "nom_commune",
+         "title": "Nom commune",
+         "description": "Nom de la commune principale",
+         "type": "string",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "insee_commune",
+         "title": "Code INSEE commune",
+         "description": "Code INSEE de la commune principale",
+         "type": "string",
+         "constraints": { "required": true, "pattern": "^\\d{5}$" }
+      },
+      {
+         "name": "opam_geomsurf",
+         "title": "Géométrie surfacique",
+         "description": "Géométries surfaciques du périmètre de l’opération d’aménagement au format GeoJSON",
+         "type": "geojson",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "opam_geompoint",
+         "title": "Centroïde",
+         "description": "Coordonnées géographiques du centroïde de l’opération d’aménagement (format GeoPoint)",
+         "type": "string",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "nom_moa",
+         "title": "Nom maître d'ouvrage",
+         "description": "Nom du maître d'ouvrage",
+         "type": "string",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "nature_moa",
+         "title": "Nature du maître d'ouvrage",
+         "description": "Nature du maître d'ouvrage",
+         "type": "string",
+         "constraints": { "required": true, "enum": ["public", "privé"] }
+      },
+      {
+         "name": "raison_sociale_moa",
+         "title": "Raison sociale du maître d'ouvrage",
+         "description": "Raison sociale du maître d'ouvrage",
+         "type": "string",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "modalite_realisation",
+         "title": "Modalités de réalisation",
+         "description": "Modalités de réalisation de l’opération",
+         "type": "string",
+         "constraints": { "required": true, "enum": ["concession", "régie", "privée"] }
+      },
+      {
+         "name": "nom_concedant",
+         "title": "Nom du concédant",
+         "description": "Nom du concédant",
+         "type": "string",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "duree_concession",
+         "title": "Durée de concession",
+         "description": "Durée de la concession en années",
+         "type": "integer",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "portage_EPF",
+         "title": "Portage EPF",
+         "description": "Portage par un établissement public foncier (oui/non)",
+         "type": "boolean",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "densite_brute",
+         "title": "Densité brute",
+         "description": "Densité brute de l’opération en m² SdP par hectare",
+         "type": "number",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "densite_brute_logt",
+         "title": "Densité brute logement",
+         "description": "Densité brute en équivalent logement par hectare",
+         "type": "number",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "densite_nette",
+         "title": "Densité nette",
+         "description": "Densité nette de l’opération en m² SdP par hectare cessible",
+         "type": "number",
+         "constraints": { "required": false }
+      },
+      {
+         "name": "densite_nette_logt",
+         "title": "Densité nette logement",
+         "description": "Densité nette en équivalent logement par hectare cessible",
+         "type": "number",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_totale_operation",
+         "title": "Surface totale",
+         "description": "Surface de plancher totale de l’opération en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_logt_individuel",
+         "title": "Surface logements individuels",
+         "description": "Surface de plancher des logements individuels en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_logt_collectif",
+         "title": "Surface logements collectifs",
+         "description": "Surface de plancher des logements collectifs en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_act_industrie",
+         "title": "Surface activités industrielles",
+         "description": "Surface de plancher des activités industrielles en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_act_logistique",
+         "title": "Surface activités logistiques",
+         "description": "Surface de plancher des activités logistiques en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_act_comm_serv",
+         "title": "Surface activités commerciales et services",
+         "description": "Surface de plancher des activités commerciales et services en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_act_bureau",
+         "title": "Surface activités de bureau",
+         "description": "Surface de plancher des activités de bureau en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_equipt_public",
+         "title": "Surface équipements publics",
+         "description": "Surface de plancher des équipements publics en m²",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_esp_public",
+         "title": "Surface espaces publics",
+         "description": "Surface des espaces publics en m²",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "surf_esp_vert_public",
+         "title": "Surface espaces verts publics",
+         "description": "Surface des espaces verts publics en m²",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "nb_demolition",
+         "title": "Nombre de démolitions",
+         "description": "Nombre de bâtiments démolis",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "nb_logt_construire",
+         "title": "Nombre de logements à construire",
+         "description": "Nombre de logements restant à construire en m² SdP",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "date_debut_travaux",
+         "title": "Date de début des travaux",
+         "description": "Date de commencement des travaux",
+         "type": "date",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "date_fin_travaux",
+         "title": "Date de fin des travaux",
+         "description": "Date d’achèvement des travaux",
+         "type": "date",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "date_reception",
+         "title": "Date de réception",
+         "description": "Date de réception et mise en service",
+         "type": "date",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "date_prev_livr_amngt",
+         "title": "Date livraison aménagement",
+         "description": "Date estimée de livraison de l’aménagement",
+         "type": "date",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "date_prev_livr_immo",
+         "title": "Date livraison immobilière",
+         "description": "Date estimée de livraison immobilière",
+         "type": "date",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "depense_total",
+         "title": "Dépense totale",
+         "description": "Total des dépenses hors taxes en kilo €",
+         "type": "integer",
+         "constraints": { "required": true }
+      },
+      {
+         "name": "recette_total",
+         "title": "Recette totale",
+         "description": "Total des recettes hors taxes en kilo €",
+         "type": "integer",
+         "constraints": { "required": true }
+      }
+   ]
+}

@@ -1,0 +1,452 @@
+{
+	"$schema": "",
+	"name": "programme",
+	"title": "Classification par programmes",
+	"description": "Description des programmes d'aménagement",
+	"countryCode": "FR",
+	"licenses": [
+		{
+			"title": "Etalab Licence Ouverte 2.0",
+			"name": "etalab-2.0",
+			"path": "https://spdx.org/licenses/etalab-2.0.html"
+		}
+	],
+	"fields": [
+		{
+			"name": "prog_id",
+			"title": "Identifiant du programme",
+			"description": "Identifiant clé primaire du programme",
+			"type": "string",
+			"constraints": {
+				"required": true,
+				"primaryKey": true
+			}
+		},
+		{
+			"name": "secteur_id",
+			"title": "Identifiant du secteur",
+			"description": "Identifiant clé secondaire du secteur d’aménagement auquel appartient le programme",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "opam_id",
+			"title": "Identifiant de l’opération d’aménagement",
+			"description": "Identifiant clé secondaire de l’opération d’aménagement à laquelle appartient le programme",
+			"type": "string",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "prog_nom",
+			"title": "Nom du programme",
+			"description": "Nom du programme",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "prog_description",
+			"title": "Description du programme",
+			"description": "Court commentaire de description du programme",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "vocation_dominante",
+			"title": "Vocation dominante",
+			"description": "Vocation dominante du programme",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "prog_nature",
+			"title": "Nature majoritaire",
+			"description": "Nature majoritaire du programme",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "prog_reference_ADS",
+			"title": "Référence ADS",
+			"description": "Référence du dossier dans le système ADS de la collectivité",
+			"type": "string",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "prog_url_medias",
+			"title": "URL des médias",
+			"description": "URL des médias du programme (photo, vue d’artiste, vidéo)",
+			"type": "string",
+			"format": "uri",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "prog_url_plan_masse",
+			"title": "URL du plan masse",
+			"description": "URL du plan masse du programme",
+			"type": "string",
+			"format": "uri",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "prog_nom_moa",
+			"title": "Maître d'ouvrage",
+			"description": "Nom du (des) maître(s) d'ouvrage",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "prog_nom_moe",
+			"title": "Maître d’œuvre",
+			"description": "Nom du (des) maître(s) d’œuvre",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_totale_prog",
+			"title": "Surface totale",
+			"description": "Surface de plancher totale du programme (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_logt_individuel",
+			"title": "Surface des logements individuels",
+			"description": "Surface de plancher des logements individuels (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_logt_collectif",
+			"title": "Surface des logements collectifs",
+			"description": "Surface de plancher des logements collectifs (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_logt_access_libre",
+			"title": "Surface des logements en accession libre",
+			"description": "Surface de plancher des logements en accession libre (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_logt_locatif_aide",
+			"title": "Surface des logements locatifs aidés",
+			"description": "Surface de plancher des logements en locatif aidé (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_logt_access_aide",
+			"title": "Surface des logements en accession aidée",
+			"description": "Surface de plancher des logements en accession aidée (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_act_industrie",
+			"title": "Surface activités industrielles",
+			"description": "Surface de plancher des activités industrielles (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_act_logistique",
+			"title": "Surface activités logistiques",
+			"description": "Surface de plancher des activités logistiques (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_act_comm_serv",
+			"title": "Surface activités commerciales et services",
+			"description": "Surface de plancher des activités commerciales et services (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_act_bureau",
+			"title": "Surface bureaux",
+			"description": "Surface de plancher des activités de bureau (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_act_autres",
+			"title": "Surface autres activités",
+			"description": "Surface de plancher des autres activités (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_equipt_public",
+			"title": "Surface équipements publics",
+			"description": "Surface de plancher des équipements publics (m² de SdP)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_esp_public",
+			"title": "Surface espaces publics",
+			"description": "Surface des espaces publics (m² terrain)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "surf_esp_vert_public",
+			"title": "Surface espaces verts publics",
+			"description": "(dont) Espaces verts publics (m² terrain)",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_total",
+			"title": "Nombre total de logements",
+			"description": "Nombre total de logements du programme",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_individuel",
+			"title": "Nombre de logements individuels",
+			"description": "Nombre de logements individuels",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_collectif",
+			"title": "Nombre de logements collectifs",
+			"description": "Nombre de logements collectifs",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_access_libre",
+			"title": "Nombre de logements en accession libre",
+			"description": "Nombre de logements en accession libre",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_locatif_aide",
+			"title": "Nombre de logements locatifs aidés",
+			"description": "Nombre de logements locatifs aidés",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_locatif_regul",
+			"title": "Nombre de logements locatifs régulés",
+			"description": "Nombre de logements locatifs régulés",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_access_aide",
+			"title": "Nombre de logements en accession aidée",
+			"description": "Nombre de logements en accession aidée",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_access_regul",
+			"title": "Nombre de logements en accession régulée",
+			"description": "Nombre de logements en accession régulée : produits locatifs (PLS, LLI, PINEL) dont le loyer est conventionné",
+			"type": "integer",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "nb_logt_participatif",
+			"title": "Nombre de logements participatifs",
+			"description": "Nombre de logements participatifs",
+			"type": "integer",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "nb_logt_specifique",
+			"title": "Nombre de logements spécifiques",
+			"description": "Nombre de logements spécifiques",
+			"type": "integer",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "type_logt_specifique",
+			"title": "Types de logements spécifiques",
+			"description": "Liste des types de logements spécifiques",
+			"type": "string",
+			"constraints": {
+				"required": false,
+				"enum": [
+					"type1",
+					"type2",
+					"type3"
+				]
+			}
+		},
+		{
+			"name": "etat_avancement",
+			"title": "État d'avancement",
+			"description": "État d’avancement du programme",
+			"type": "string",
+			"constraints": {
+				"required": true,
+				"enum": [
+					"en projet",
+					"en cours",
+					"terminé"
+				]
+			}
+		},
+		{
+			"name": "date_attribution_foncier",
+			"title": "Date d'attribution foncière",
+			"description": "Date d’attribution foncière",
+			"type": "date",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "date_commercialisation",
+			"title": "Date de commercialisation",
+			"description": "Date de commercialisation",
+			"type": "date",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "date_obtention_pc",
+			"title": "Date d'obtention du permis de construire",
+			"description": "Date d’obtention du permis de construire",
+			"type": "date",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "date_livraison_prevue",
+			"title": "Date de livraison prévue",
+			"description": "Date de livraison prévue",
+			"type": "date",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "date_livraison_effective",
+			"title": "Date de livraison effective",
+			"description": "Date de livraison effective",
+			"type": "date",
+			"constraints": {
+				"required": false
+			}
+		},
+		{
+			"name": "prog_identif_date",
+			"title": "Date d'identification",
+			"description": "Date d'identification du programme",
+			"type": "date",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "prog_actu_date",
+			"title": "Date de dernière actualisation",
+			"description": "Date de dernière actualisation du programme",
+			"type": "date",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "source_producteur",
+			"title": "Source producteur",
+			"description": "Nom du producteur de la donnée d’identification ou d’actualisation",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "prog_geompoint",
+			"title": "Géométrie ponctuelle",
+			"description": "Géométrie ponctuelle du programme au format GeoJSON",
+			"type": "geojson",
+			"constraints": {
+				"required": true
+			}
+		}
+	]
+}

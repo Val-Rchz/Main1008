@@ -1,0 +1,124 @@
+{
+    "$schema": "",
+    "name": "secteur",
+    "title": "Classification par secteurs",
+    "description": "Description des secteurs d'aménagement",
+    "countryCode": "FR",
+    "licenses": [
+        {
+            "title": "Etalab Licence Ouverte 2.0",
+            "name": "etalab-2.0",
+            "path": "https://spdx.org/licenses/etalab-2.0.html"
+        }
+    ],
+    "fields": [
+        {
+            "name": "sect_id",
+            "title": "Identifiant du secteur",
+            "description": "Identifiant clé primaire du secteur d’aménagement",
+            "example": "TERRAIN",
+            "type": "string",
+            "constraints": {
+                "required": true,
+                "primaryKey": true
+            }
+        },
+        {
+            "name": "opam_id",
+            "title": "Identifiant de l’opération d’aménagement",
+            "description": "Identifiant clé secondaire de l’opération d’aménagement à laquelle appartient le secteur",
+            "example": "OPAM",
+            "type": "string",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "name": "sect_nom",
+            "title": "Nom du secteur",
+            "description": "Nom du secteur d’aménagement",
+            "type": "string",
+            "constraints": {
+                "required": true
+            }
+        },
+        {
+            "name": "sect_description",
+            "title": "Description du secteur",
+            "description": "Court commentaire de description du secteur",
+            "type": "string",
+            "constraints": {
+                "required": true
+            }
+        },
+        {
+            "name": "nb_logt_prevu",
+            "title": "Nombre de logements prévus",
+            "description": "Nombre de logements prévus dans le secteur (en m² de SdP)",
+            "type": "integer",
+            "constraints": {
+                "required": true
+            }
+        },
+        {
+            "name": "sect_url_plan_masse",
+            "title": "URL du plan masse",
+            "description": "URL du plan masse du secteur",
+            "type": "string",
+            "format": "uri",
+            "constraints": {
+                "required": false
+            }
+        },
+        {
+            "name": "etat_avancement",
+            "title": "État d'avancement",
+            "description": "État d’avancement du secteur",
+            "type": "string",
+            "constraints": {
+                "required": true,
+                "enum": [
+                    "en projet",
+                    "en cours",
+                    "terminé"
+                ]
+            }
+        },
+        {
+            "name": "sect_actu_date",
+            "title": "Date de dernière actualisation",
+            "description": "Date de dernière actualisation du secteur d’aménagement",
+            "type": "date",
+            "constraints": {
+                "required": true
+            }
+        },
+        {
+            "name": "sect_identif_date",
+            "title": "Date d'identification",
+            "description": "Date d'identification du secteur d’aménagement",
+            "type": "date",
+            "constraints": {
+                "required": true
+            }
+        },
+        {
+            "name": "source_producteur",
+            "title": "Source producteur",
+            "description": "Nom du producteur de la donnée d’identification ou d’actualisation",
+            "type": "string",
+            "constraints": {
+                "required": true
+            }
+        },
+        {
+            "name": "sect_geomsurf",
+            "title": "Géométries surfaciques",
+            "description": "Multi géométries surfaciques du périmètre du secteur d’aménagement au format GeoJSON",
+            "type": "geojson",
+            "constraints": {
+                "required": true
+            }
+        }
+    ]
+}
