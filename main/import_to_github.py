@@ -3,7 +3,7 @@ import subprocess
 
 # Configuration
 repo_url = "https://github.com/TON-UTILISATEUR/TON-DÉPÔT.git"  # Remplace par ton URL GitHub
-file_to_add = "example.json"  # Nom du fichier JSON
+file_to_add = "Test.json" 
 commit_message = "Add example.json file"  # Message du commit
 
 # Clone le dépôt si nécessaire
